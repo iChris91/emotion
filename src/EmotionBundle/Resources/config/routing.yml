@@ -1,3 +1,7 @@
 emotion_homepage:
     path:     /
     defaults: { _controller: EmotionBundle:Default:index }
+    
+emotion_profil:
+    path:     /profil/{id}
+    defaults: { _controller:EmotionBundle:Default:getUser }

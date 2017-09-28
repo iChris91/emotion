@@ -5,12 +5,12 @@ namespace EmotionBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Users
+ * User
  *
- * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="EmotionBundle\Repository\UsersRepository")
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="EmotionBundle\Repository\UserRepository")
  */
-class Users
+class User
 {
     /**
      * @var int
@@ -101,9 +101,9 @@ class Users
     /**
      * @var int
      *
-     * @ORM\Column(name="id_cmd_inprogress", type="integer")
+     * @ORM\Column(name="id_rent_inprogress", type="integer")
      */
-    private $idCmdInprogress;
+    private $idRentInprogress;
 
     /**
      * @var int
@@ -128,7 +128,7 @@ class Users
      *
      * @param string $name
      *
-     * @return Users
+     * @return User
      */
     public function setName($name)
     {
@@ -152,7 +152,7 @@ class Users
      *
      * @param string $firstName
      *
-     * @return Users
+     * @return User
      */
     public function setFirstName($firstName)
     {
@@ -176,7 +176,7 @@ class Users
      *
      * @param \DateTime $birthDate
      *
-     * @return Users
+     * @return User
      */
     public function setBirthDate($birthDate)
     {
@@ -200,7 +200,7 @@ class Users
      *
      * @param string $zipCode
      *
-     * @return Users
+     * @return User
      */
     public function setZipCode($zipCode)
     {
@@ -224,7 +224,7 @@ class Users
      *
      * @param string $city
      *
-     * @return Users
+     * @return User
      */
     public function setCity($city)
     {
@@ -248,7 +248,7 @@ class Users
      *
      * @param string $adress
      *
-     * @return Users
+     * @return User
      */
     public function setAdress($adress)
     {
@@ -272,7 +272,7 @@ class Users
      *
      * @param string $phone
      *
-     * @return Users
+     * @return User
      */
     public function setPhone($phone)
     {
@@ -296,7 +296,7 @@ class Users
      *
      * @param string $driverLicense
      *
-     * @return Users
+     * @return User
      */
     public function setDriverLicense($driverLicense)
     {
@@ -320,7 +320,7 @@ class Users
      *
      * @param integer $loyaltyPts
      *
-     * @return Users
+     * @return User
      */
     public function setLoyaltyPts($loyaltyPts)
     {
@@ -344,7 +344,7 @@ class Users
      *
      * @param string $mail
      *
-     * @return Users
+     * @return User
      */
     public function setMail($mail)
     {
@@ -368,7 +368,7 @@ class Users
      *
      * @param string $password
      *
-     * @return Users
+     * @return User
      */
     public function setPassword($password)
     {
@@ -388,27 +388,27 @@ class Users
     }
 
     /**
-     * Set idCmdInprogress
+     * Set idRentInprogress
      *
-     * @param integer $idCmdInprogress
+     * @param integer $idRentInprogress
      *
-     * @return Users
+     * @return User
      */
-    public function setIdCmdInprogress($idCmdInprogress)
+    public function setIdRentInprogress($idRentInprogress)
     {
-        $this->idCmdInprogress = $idCmdInprogress;
+        $this->idRentInprogress = $idRentInprogress;
 
         return $this;
     }
 
     /**
-     * Get idCmdInprogress
+     * Get idRentInprogress
      *
      * @return int
      */
-    public function getIdCmdInprogress()
+    public function getIdRentInprogress()
     {
-        return $this->idCmdInprogress;
+        return $this->idRentInprogress;
     }
 
     /**
@@ -416,7 +416,7 @@ class Users
      *
      * @param integer $role
      *
-     * @return Users
+     * @return User
      */
     public function setRole($role)
     {

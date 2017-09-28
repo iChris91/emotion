@@ -1,0 +1,13 @@
+body {
+    background: skyblue;
+}
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid gray;
+    margin-top: 40px;
+    padding-top:10px;
+    padding-bottom: 50px;
+    background: #EEEEEE;
+}
