@@ -76,6 +76,12 @@ class Product
      *
      * @return int
      */
+    /**
+     * @ORM\ManyToOne(targetEntity="Brand", inversedBy="product")
+     * @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     */
+    private $brand;
+
     public function getId()
     {
         return $this->id;
