@@ -2,6 +2,7 @@
 
 namespace EmotionBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,6 +35,17 @@ class Brand
      *
      * @return int
      */
+
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="brand")
+     */
+    private $product;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
