@@ -22,13 +22,6 @@ class Rent
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="product_name", type="string", length=255)
-     */
-    private $productName;
-
-    /**
      * @var float
      *
      * @ORM\Column(name="price", type="float")
@@ -56,20 +49,6 @@ class Rent
      */
     private $maxKm;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_product_rent", type="integer")
-     */
-    private $idProductRent;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     */
-    private $idUser;
-
 
     /**
      * Get id
@@ -79,30 +58,6 @@ class Rent
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set productName
-     *
-     * @param string $productName
-     *
-     * @return Rent
-     */
-    public function setProductName($productName)
-    {
-        $this->productName = $productName;
-
-        return $this;
-    }
-
-    /**
-     * Get productName
-     *
-     * @return string
-     */
-    public function getProductName()
-    {
-        return $this->productName;
     }
 
     /**
@@ -201,52 +156,5 @@ class Rent
         return $this->maxKm;
     }
 
-    /**
-     * Set idProductRent
-     *
-     * @param integer $idProductRent
-     *
-     * @return Rent
-     */
-    public function setIdProductRent($idProductRent)
-    {
-        $this->idProductRent = $idProductRent;
-
-        return $this;
-    }
-
-    /**
-     * Get idProductRent
-     *
-     * @return int
-     */
-    public function getIdProductRent()
-    {
-        return $this->idProductRent;
-    }
-
-    /**
-     * Set idUser
-     *
-     * @param integer $idUser
-     *
-     * @return Rent
-     */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return int
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
 }
 

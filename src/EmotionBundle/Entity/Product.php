@@ -22,20 +22,6 @@ class Product
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="brand", type="integer")
-     */
-    private $brand;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="model", type="integer")
-     */
-    private $model;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="serial_number", type="string", length=255)
@@ -84,13 +70,6 @@ class Product
      */
     private $availabilityDate;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_category", type="integer")
-     */
-    private $idCategory;
-
 
     /**
      * Get id
@@ -102,54 +81,7 @@ class Product
         return $this->id;
     }
 
-    /**
-     * Set brand
-     *
-     * @param integer $brand
-     *
-     * @return Product
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return int
-     */
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    /**
-     * Set model
-     *
-     * @param integer $model
-     *
-     * @return Product
-     */
-    public function setModel($model)
-    {
-        $this->model = $model;
-
-        return $this;
-    }
-
-    /**
-     * Get model
-     *
-     * @return int
-     */
-    public function getModel()
-    {
-        return $this->model;
-    }
-
+   
     /**
      * Set serialNumber
      *

@@ -2,15 +2,15 @@
 
 namespace EmotionBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * User
- *
+ * @ORM\Entity
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="EmotionBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,172 +19,103 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="first_name", type="string", length=255)
-     */
-    private $firstName;
-
-    /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="birth_date", type="date")
+     *
+     * @Assert\NotBlank(groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=100,
+     *     minMessage="Nom de ville trop court",
+     *     maxMessage="Nom de ville trop long",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $birthDate;
+    protected $birthDate;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="zip_code", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Code Postal", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=100,
+     *     minMessage="Nom de ville trop court",
+     *     maxMessage="Nom de ville trop long",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $zipCode;
+    protected $zipCode;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="city", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Ville", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=100,
+     *     minMessage="Nom de ville trop court",
+     *     maxMessage="Nom de ville trop long",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $city;
+    protected $city;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="adress", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Adresse", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="Adresse trop courte.",
+     *     maxMessage="Adresse trop longue",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $adress;
+    protected $adress;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="phone", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Numero de téléphone", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=9,
+     *     max=11,
+     *     minMessage="Numéro de téléphone trop court",
+     *     maxMessage="Numéro de téléphone trop long",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $phone;
+    protected $phone;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="driver_license", type="string", length=255)
-     */
-    private $driverLicense;
-
-    /**
-     * @var int
      *
-     * @ORM\Column(name="loyalty_pts", type="integer")
+     * @Assert\NotBlank(message="Numéro de permis", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="le numéro de permis est trop long",
+     *     maxMessage="le numéro de permis est trop court",
+     *     groups={"Registration", "Profile"}
+     * )
      */
-    private $loyaltyPts;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255)
-     */
-    private $mail;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_rent_inprogress", type="integer")
-     */
-    private $idRentInprogress;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="role", type="integer")
-     */
-    private $role;
+    protected $driverLicense;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+     public function getId()
     {
         return $this->id;
     }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return User
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set birthDate
-     *
-     * @param \DateTime $birthDate
-     *
-     * @return User
-     */
+   
     public function setBirthDate($birthDate)
     {
         $this->birthDate = $birthDate;
-
         return $this;
     }
-
     /**
      * Get birthDate
      *
@@ -194,7 +125,6 @@ class User
     {
         return $this->birthDate;
     }
-
     /**
      * Set zipCode
      *
@@ -205,10 +135,8 @@ class User
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
-
         return $this;
     }
-
     /**
      * Get zipCode
      *
@@ -218,7 +146,6 @@ class User
     {
         return $this->zipCode;
     }
-
     /**
      * Set city
      *
@@ -229,10 +156,8 @@ class User
     public function setCity($city)
     {
         $this->city = $city;
-
         return $this;
     }
-
     /**
      * Get city
      *
@@ -242,7 +167,6 @@ class User
     {
         return $this->city;
     }
-
     /**
      * Set adress
      *
@@ -253,10 +177,8 @@ class User
     public function setAdress($adress)
     {
         $this->adress = $adress;
-
         return $this;
     }
-
     /**
      * Get adress
      *
@@ -266,7 +188,6 @@ class User
     {
         return $this->adress;
     }
-
     /**
      * Set phone
      *
@@ -277,10 +198,8 @@ class User
     public function setPhone($phone)
     {
         $this->phone = $phone;
-
         return $this;
     }
-
     /**
      * Get phone
      *
@@ -290,7 +209,6 @@ class User
     {
         return $this->phone;
     }
-
     /**
      * Set driverLicense
      *
@@ -301,10 +219,8 @@ class User
     public function setDriverLicense($driverLicense)
     {
         $this->driverLicense = $driverLicense;
-
         return $this;
     }
-
     /**
      * Get driverLicense
      *
@@ -315,124 +231,6 @@ class User
         return $this->driverLicense;
     }
 
-    /**
-     * Set loyaltyPts
-     *
-     * @param integer $loyaltyPts
-     *
-     * @return User
-     */
-    public function setLoyaltyPts($loyaltyPts)
-    {
-        $this->loyaltyPts = $loyaltyPts;
-
-        return $this;
-    }
-
-    /**
-     * Get loyaltyPts
-     *
-     * @return int
-     */
-    public function getLoyaltyPts()
-    {
-        return $this->loyaltyPts;
-    }
-
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     *
-     * @return User
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set idRentInprogress
-     *
-     * @param integer $idRentInprogress
-     *
-     * @return User
-     */
-    public function setIdRentInprogress($idRentInprogress)
-    {
-        $this->idRentInprogress = $idRentInprogress;
-
-        return $this;
-    }
-
-    /**
-     * Get idRentInprogress
-     *
-     * @return int
-     */
-    public function getIdRentInprogress()
-    {
-        return $this->idRentInprogress;
-    }
-
-    /**
-     * Set role
-     *
-     * @param integer $role
-     *
-     * @return User
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return int
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
+   
 }
 

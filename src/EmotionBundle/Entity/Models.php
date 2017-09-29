@@ -29,14 +29,6 @@ class Models
     private $model;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_brand", type="integer")
-     */
-    private $idBrand;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -70,28 +62,5 @@ class Models
         return $this->model;
     }
 
-    /**
-     * Set idBrand
-     *
-     * @param integer $idBrand
-     *
-     * @return Models
-     */
-    public function setIdBrand($idBrand)
-    {
-        $this->idBrand = $idBrand;
-
-        return $this;
-    }
-
-    /**
-     * Get idBrand
-     *
-     * @return int
-     */
-    public function getIdBrand()
-    {
-        return $this->idBrand;
-    }
 }
 
